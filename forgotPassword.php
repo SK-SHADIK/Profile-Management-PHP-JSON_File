@@ -1,3 +1,9 @@
+<?php require("forgotPassword.class.php") ?>
+<?php 
+	if(isset($_POST['submit'])){
+		$user = new forgetPasswordU($_POST['email']);
+	}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,19 +20,35 @@
             padding-left: 60px;
             padding-right: 60px;
         }
+        .error{
+	  margin-top: 30px;
+	  color: red;
+	  font-size: 20px;
+	  font-weight: 900;
+    }
+     
+    .success{
+     	margin-top: 30px;
+     	color: green;
+		font-size: 20px;
+	    font-weight: 900;
+    }
     </style>
 </head>
 <body>
     <?php include 'Layouts/header.php'; ?>
     <div class="container">
-       <form action="">
+    <p class="error"><?php echo @$user->error ?></p>
+	<p class="success"><?php echo @$user->success ?></p>
+    <form action="" method="post" enctype="multipart/form-data" autocomplete="off">
+
            <fieldset>
                <legend for="Login">Forgot Password</legend>
 
                <label for="Email">Email: </label>
                <input type="text" name="email" id="email" placeholder="Enter Email"> <br> <br> 
                <hr>
-               <input type="submit" value="Submit">
+               <input type="submit" value="Submit" name="submit">
             </fieldset>
 
             

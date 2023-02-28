@@ -1,6 +1,5 @@
 <?php 
 class RegisterUser{
-	// Class properties
 	private $name;
 	private $email;
 	private $raw_password;
@@ -49,7 +48,7 @@ class RegisterUser{
 
 	private function emailExists(){
 		foreach($this->stored_users as $user){
-			if($this->email == $user['email']){
+			if($this->email == $user['Email']){
 				$this->error = "This Email Already Taken!!! Please Try Different One...";
 				return true;
 			}

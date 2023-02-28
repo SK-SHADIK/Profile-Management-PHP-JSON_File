@@ -1,6 +1,5 @@
 <?php 
 class LoginUser{
-	// class properties
 	private $email;
 	private $password;
 	public $error;
@@ -21,7 +20,7 @@ class LoginUser{
 			if($user['Email'] == $this->email){
 				if(password_verify($this->password, $user['Password'])){
 					session_start();
-					$_SESSION['user'] = $this->email;
+					$_SESSION['email'] = $this->email;
 					header("location: account.php"); exit();
 				}
 			}
